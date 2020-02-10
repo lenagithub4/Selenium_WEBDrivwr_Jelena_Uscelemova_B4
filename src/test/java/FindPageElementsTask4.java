@@ -1,19 +1,4 @@
 
-import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
-
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-
-
-/*
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,27 +6,33 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
+/*import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test; */
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.After;
+import org.junit.Assert;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
-    public class ScenarioAdminElementsTask4 {
+import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
- WebDriver driver;
+public class FindPageElementsTask4 {
 
+    private WebDriver driver;
+    private WebDriverWait wait;
 
- @BeforeClass
+ @Before
 public void setup(){
-
- driver = new ChromeDriver();
-wait = new WebDriverWait(driver, 10);
+    driver = new ChromeDriver();
+    wait = new WebDriverWait(driver, 10);
  }
 
-  @AfterClass
+  @After
   public void finish(){
 
 
@@ -59,9 +50,9 @@ wait = new WebDriverWait(driver, 10);
    }
 
 
-  @Test(dependsOnMethods = {"testLoginAsAdmin"})
+  @Test
  public void testLeftMenuLinks() throws InterruptedException {
- // wait untill the page is loaded
+ // wait until the page is loaded
  wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("name")));
 
 
@@ -94,7 +85,7 @@ wait = new WebDriverWait(driver, 10);
  }
 
 
- @Test(dependsOnMethods = {"testLeftMenuLinks"})
+ @Test
  public void testLogoutAsAdmin() throws InterruptedException {
 
 
@@ -112,6 +103,4 @@ wait = new WebDriverWait(driver, 10);
 
    return names;
    }
-}
-
 }
