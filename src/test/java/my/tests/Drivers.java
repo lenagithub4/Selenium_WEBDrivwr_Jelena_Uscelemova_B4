@@ -10,7 +10,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-public class Drivers {
+public class Drivers  {
     public static WebDriver drv;
     public WebDriverWait wait;
 
@@ -18,19 +18,19 @@ public class Drivers {
     @Before
     public void start() {
         //chrome
-        if (drv == null) {
-            DesiredCapabilities caps = new DesiredCapabilities();
-            caps.setBrowserName("chrome");
-            drv = new ChromeDriver(caps);
-            wait = new WebDriverWait(drv, 2000);
-        }
+        //if (drv == null) {
+        //    DesiredCapabilities caps = new DesiredCapabilities();
+         //   caps.setBrowserName("chrome");
+        //    drv = new ChromeDriver(caps);
+         //   wait = new WebDriverWait(drv, 2000);
+      //  }
 
         //firefox
-        // if (drv==null){
-        //  System.setProperty("webdriver.gecko.driver", "C:/Users/user/Documents/Selenium WEBDriver/geckodriver/geckodriver.exe");
-        //  drv = new FirefoxDriver();
-        //  wait = new WebDriverWait(drv, 2000);
-        // }
+         if (drv==null){
+          System.setProperty("webdriver.gecko.driver", "C:/Users/user/Documents/Selenium WEBDriver/geckodriver/geckodriver.exe");
+            drv = new FirefoxDriver();
+          wait = new WebDriverWait(drv, 2000);
+        }
 
         //ie
         //if (drv==null) {
@@ -43,10 +43,10 @@ public class Drivers {
         //  wait = new WebDriverWait(drv, 30);
         // }
 
-        //System.out.println(((HasCapabilities) wd).getCapabilities());
+        //System.out.println(((HasCapabilities) drv).getCapabilities());
 
-        //wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        //wait = new WebDriverWait(wd, 10);
+        //drv.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        //wait = new WebDriverWait(drv, 10);
     }
 
     @After
