@@ -18,19 +18,19 @@ public class Drivers  {
     @Before
     public void start() {
         //chrome
-        //if (drv == null) {
-        //    DesiredCapabilities caps = new DesiredCapabilities();
-         //   caps.setBrowserName("chrome");
-        //    drv = new ChromeDriver(caps);
-         //   wait = new WebDriverWait(drv, 2000);
-      //  }
+        if (drv == null) {
+            DesiredCapabilities caps = new DesiredCapabilities();
+          caps.setBrowserName("chrome");
+            drv = new ChromeDriver(caps);
+          wait = new WebDriverWait(drv, 2000);
+       }
 
         //firefox
-         if (drv==null){
-          System.setProperty("webdriver.gecko.driver", "C:/Users/user/Documents/Selenium WEBDriver/geckodriver/geckodriver.exe");
-            drv = new FirefoxDriver();
-          wait = new WebDriverWait(drv, 2000);
-        }
+       //  if (drv==null){
+        //  System.setProperty("webdriver.gecko.driver", "C:/Users/user/Documents/Selenium WEBDriver/geckodriver/geckodriver.exe");
+         //   drv = new FirefoxDriver();
+        //  wait = new WebDriverWait(drv, 2000);
+       // }
 
         //ie
         //if (drv==null) {
