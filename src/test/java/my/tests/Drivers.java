@@ -26,6 +26,15 @@ public class Drivers  {
            wait = new WebDriverWait(drv, 2000);
        }
 
+
+        //IE
+        //if (drv==null) {
+        //DesiredCapabilities caps = new DesiredCapabilities();
+        //drv = new InternetExplorerDriver(caps);
+        //drv.manage().window().maximize();
+        //wait = new WebDriverWait(drv, 30);
+        // }
+
         //Firefox
          //if (drv==null){
          // System.setProperty("webdriver.gecko.driver", "C:/Users/user/Documents/Selenium WEBDriver/geckodriver/geckodriver.exe");
@@ -33,13 +42,7 @@ public class Drivers  {
          //wait = new WebDriverWait(drv, 2000);
         //}
 
-        //IE
-        //if (drv==null) {
-         //DesiredCapabilities caps = new DesiredCapabilities();
-         //drv = new InternetExplorerDriver(caps);
-         //drv.manage().window().maximize();
-          //wait = new WebDriverWait(drv, 30);
-       // }
+
     }
 
     @After

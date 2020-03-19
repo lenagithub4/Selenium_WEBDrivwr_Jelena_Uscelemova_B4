@@ -13,7 +13,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
     public class ScenarioLoginTask3 extends Drivers {
 
         @Test
-        public void login1(){
+        public void login2(){
             drv.navigate().to("http://localhost/litecart/admin/login.php");
             drv.findElement(By.name("username")).sendKeys("admin");
             drv.findElement(By.name("password")).sendKeys("admin");
@@ -25,8 +25,8 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
            if (!drv.getCurrentUrl().equals("http://localhost/litecart/admin/")){
              AssertionError assertError = new AssertionError();
-              System.out.println("FAILED: " +assertError.getMessage());
-               System.out.println("Page title is " + drv.getCurrentUrl());
+              System.out.println("ERROR: " +assertError.getMessage());
+               System.out.println("Current Page title is " + drv.getCurrentUrl());
                Assert.fail();
             }
         }
