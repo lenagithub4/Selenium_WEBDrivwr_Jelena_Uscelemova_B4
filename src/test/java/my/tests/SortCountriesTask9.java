@@ -22,11 +22,10 @@ public class SortCountriesTask9 extends Drivers {
     }
 
 
-
     @Test
     public void sort() {
         ScenarioLoginTask3 test = new ScenarioLoginTask3();
-        test.login1();
+        test.login2();
 
         drv.navigate().to("http://localhost/litecart/admin/?app=countries&doc=countries");
 
@@ -105,74 +104,7 @@ public class SortCountriesTask9 extends Drivers {
             System.out.println("Countries sorted not correctly");
         }
 
-/*
-        for (int i = 0; i < rows.size(); i++) {
-            coName = rows.get(i).findElements(By.cssSelector("td")).get(4).findElement((By.cssSelector("a"))).getText();
-            myCountries.add(coName);
-            myCountriesOrig.add(coName);
 
-        }
-        // sort the Country list for sorting
-        Collections.sort(
-                myCountries,
-                Comparator.comparing(String::toString)
-        );
-
-        // print the current Countries list
-        for (int k = 0; k < rows.size(); k++) {
-            System.out.println(myCountriesOrig.get(k));
-        }
-
-        //Compare sorted Country list with original
-        System.out.println("The main list Countries are displayed in an alphabetical order! The result of the test is = " + myCountriesOrig.equals(myCountries));
-
-
-        // Zone
-
-
-        List<WebElement> rowszone = drv.findElements(By.cssSelector("table.dataTable tr.row"));
-
-        for (int j = 0; j < rows.size(); j++) {
-            // Country list for sorting
-            List<String> mySubCountries = new ArrayList<String>();
-
-            // Current Country list
-            List<String> mySubCountriesOrig = new ArrayList<String>();
-
-            coZone = rowszone.get(j).findElements(By.cssSelector("td")).get(5).getText();
-            String coNameZ = rowszone.get(j).findElements(By.cssSelector("td")).get(4).getText();
-            if (!coZone.equals("0")) {
-                System.out.println("Found country " + coNameZ + " with " + coZone + " zones");
-                WebElement countryLink = rowszone.get(j).findElements(By.cssSelector("td")).get(4).findElement((By.cssSelector("a")));
-                //WebElement codeLink = rowszone.get(j).findElements(By.cssSelector("td")).get(3).findElement((By.cssSelector("a")));
-
-                countryLink.click();
-
-                if (!drv.getTitle().equals("Edit Country | My Store")) {
-                    AssertionError assertError = new AssertionError("Can not open required page");
-                    System.out.println("FAILED: Wrong page name " + drv.getTitle() + "" + assertError.getMessage());
-                    Assert.fail();
-                }
-
-                List<WebElement> Subrows = drv.findElements(By.cssSelector("table#table-zones tr"));
-
-                for (int m = 1; m < Subrows.size() - 1; m++) {
-                    String coSubName = Subrows.get(m).findElements(By.cssSelector("td")).get(2).getText();
-                    mySubCountries.add(coSubName);
-                    mySubCountriesOrig.add(coSubName);
-                }
-
-
-                // sort the SubCountry list for sorting
-                     Collections.sort(mySubCountries);
-
-                //Compare sorted SubCountry list with original
-                    System.out.println("The results of Zone Companies sorting for  " + coNameZ + " is = " + mySubCountriesOrig.equals(mySubCountries));
-                    drv.navigate().to("http://localhost/litecart/admin/?app=countries&doc=countries");
-                    rowszone = drv.findElements(By.cssSelector("table.dataTable tr.row"));
-            }
-
-        }*/
 
     }
 }
