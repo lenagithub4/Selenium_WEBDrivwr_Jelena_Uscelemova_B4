@@ -18,7 +18,7 @@ public class FindStickerTask8 extends Drivers {
             drv.navigate().to("http://localhost/litecart/en/");
 
             drv.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-           List<WebElement> list = drv.findElements(By.className("hover-light"));
+           List<WebElement> list = drv.findElements(By.className("product"));
             System.out.println("Have found " + list.size() + " ducks on the page");
 
             for(int i=0;i<list.size();i++){
