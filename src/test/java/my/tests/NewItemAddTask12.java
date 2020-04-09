@@ -32,7 +32,7 @@ public class NewItemAddTask12 extends Drivers {
 
         //going to catalog
         drv.findElement(By.cssSelector("ul#box-apps-menu a[href$='doc=catalog']")).click();
-
+        drv.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
         if (!drv.getTitle().equals("Catalog | My Store")){
             AssertionError assertError = new AssertionError();
             System.out.println("ERROR: " +assertError.getMessage());
@@ -47,6 +47,7 @@ public class NewItemAddTask12 extends Drivers {
         // tab "General"
 
         drv.findElement(By.cssSelector("td#content a[href$='doc=edit_product']")).click();
+        drv.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
         if (!drv.getTitle().equals("Add New Product | My Store")){
             AssertionError assertError = new AssertionError();
             System.out.println("ERROR: " +assertError.getMessage());
@@ -99,7 +100,7 @@ public class NewItemAddTask12 extends Drivers {
         // New Item Picture
             WebElement uploadImage = drv.findElement(By.cssSelector("div#tab-general input[name='new_images[]']"));
             uploadImage.sendKeys( System.getProperty("user.dir") + filePath );
-            drv.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+            drv.manage().timeouts().implicitlyWait(200, TimeUnit.SECONDS);
 
         //Date Valid From
             WebElement validFrom = drv.findElement(By.cssSelector("div#tab-general input[name='date_valid_from'][type='date']"));
@@ -159,7 +160,8 @@ public class NewItemAddTask12 extends Drivers {
 
         //save
             drv.findElement(By.cssSelector("span.button-set button[type='submit'][value='Save']")).click();
-        //wait.until(titleIs("Catalog | My Store"));
+            drv.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+            //wait.until(titleIs("Catalog | My Store"));
             if (!drv.getTitle().equals("Catalog | My Store")){
             AssertionError assertError = new AssertionError();
             System.out.println("error: " +assertError.getMessage());
