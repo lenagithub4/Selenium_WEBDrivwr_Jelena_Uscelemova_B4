@@ -17,11 +17,12 @@ public class NewItemAddTask12 extends Drivers {
     String newSoldOut = "1";
     String newValidFrom = "01.01.2020";
     String newValidTo = "31.12.2020";
+    String newManufacturer = "1";
     String newShortDescr = "The canvasback is a species of diving duck";
     String newDescription = "The breeding habitat of the canvasback is in North America prairie potholes. The bulky nest is built from vegetation in a marsh and lined with down.";
     String newDescription2 = "The bulky nest is built from vegetation in a marsh and lined with down. Loss of nesting habitat has caused populations to decline.";
-    String newPrice1 = "50";
-    String newPrice2 = "50";
+    String newPrice1 = "55";
+    String newPrice2 = "55";
     String filePath = "/src/test/resources/NewDuck.jpg";
 
 
@@ -100,7 +101,14 @@ public class NewItemAddTask12 extends Drivers {
         // New Item Picture
             WebElement uploadImage = drv.findElement(By.cssSelector("div#tab-general input[name='new_images[]']"));
             uploadImage.sendKeys( System.getProperty("user.dir") + filePath );
-            drv.manage().timeouts().implicitlyWait(200, TimeUnit.SECONDS);
+            drv.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+
+        //if (!uploadImage.getAttribute("value").equals("")) {
+        //    AssertionError assertError = new AssertionError();
+        //    System.out.println("ERROR: " + assertError.getMessage());
+         //   System.out.println("The Image doesn't loaded");
+         //   Assert.fail();
+        //}
 
         //Date Valid From
             WebElement validFrom = drv.findElement(By.cssSelector("div#tab-general input[name='date_valid_from'][type='date']"));
@@ -115,7 +123,7 @@ public class NewItemAddTask12 extends Drivers {
 
         // manufacturer
             Select manufacturer = new Select(drv.findElement(By.cssSelector("div#tab-information select[name='manufacturer_id']")));
-            manufacturer.selectByValue("1");
+            manufacturer.selectByValue(newManufacturer);
 
         //keywords
             WebElement keywords = drv.findElement(By.cssSelector("div#tab-information input[name='keywords'][type='text']"));
@@ -164,8 +172,8 @@ public class NewItemAddTask12 extends Drivers {
             //wait.until(titleIs("Catalog | My Store"));
             if (!drv.getTitle().equals("Catalog | My Store")){
             AssertionError assertError = new AssertionError();
-            System.out.println("error: " +assertError.getMessage());
-            System.out.println("Page URL is " + drv.getCurrentUrl());
+            System.out.println("ERROR: " +assertError.getMessage());
+            System.out.println("The current page's URL is: " + drv.getCurrentUrl());
             Assert.fail();
         }
             System.out.println("Current Page Title is: " + drv.getTitle());
@@ -176,17 +184,17 @@ public class NewItemAddTask12 extends Drivers {
 
             if (isElementPresent(drv))
             {
-                System.out.println("Found created item '"+newItemName+"' on the Catalog page");
+                System.out.println("Have fFound created item '"+newItemName+"' on the Catalog page");
             }
             else
             {
              AssertionError assertError = new AssertionError();
              System.out.println("error: " +assertError.getMessage());
-             System.out.println("Can not find created item on the Catalog page");
+             System.out.println("Can't find  the created and added item to the Catalog page");
                 Assert.fail();
         }
     }
-
+     // Check that new item is added
     protected boolean isElementPresent(WebDriver DRIVER){
         try{
             DRIVER.findElement(By.linkText(newItemName));
