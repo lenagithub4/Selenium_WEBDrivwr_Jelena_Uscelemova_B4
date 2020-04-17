@@ -66,6 +66,7 @@ public class openWindowsTask14 extends Drivers{
                    System.out.println("________________________________");
 
                }
+            System.out.println("Count of opened pages is   " + listOfTargetBlank.size());
         }
 
 
